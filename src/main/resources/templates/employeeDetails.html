@@ -15,12 +15,16 @@
                 <th>Name</th>
                 <th>Surname</th>
                 <th>Salary</th>
+                <th>Phone</th>
+                <th>Email</th>
             </tr>
             <tr>
                 <td th:text="${employee.employeeId}"></td>
                 <td th:text="${employee.name}"></td>
                 <td th:text="${employee.surname}"></td>
                 <td th:text="${employee.salary}"></td>
+                <td th:text="${employee.phone}"></td>
+                <td th:text="${employee.email}"></td>
             </tr>
         </table>
         <a class="btn btn-light" th:href="@{/employees}">Show all employees</a>

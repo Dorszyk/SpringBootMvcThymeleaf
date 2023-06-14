@@ -13,11 +13,16 @@
 <div class="container">
     <div class="page-header" id="banner">
         <h2>Add an employee</h2>
-        <form action="#" th:action="@{/employees/add}" method="POST">
+        <form action="#"
+              th:action="@{/employees/add}"
+              method="POST"
+              th:object="${EmployeeDTO}">
             <div class="form-group">
-                Name: <input type="text" th:name="name"/>
-                Surname: <input type="text" th:name="surname"/>
-                Salary: <input type="text" th:name="salary"/>
+                Name: <input type="text" th:field="*{name}"/><br>
+                Surname: <input type="text" th:field="*{surname}"/><br>
+                Salary: <input type="text" th:field="*{salary}"/><br>
+                Phone: <input type="text" th:field="*{phone}"/><br>
+                Email: <input type="text" th:field="*{email}"/><br>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create employee" name="button"/>
@@ -25,12 +30,17 @@
         </form>
         <hr/>
         <h2>Update an employee</h2>
-        <form action="#" th:action="@{/employees/update}" th:method="PUT" th:object="${updateEmployeeDTO}">
+        <form action="#"
+              th:action="@{/employees/update}"
+              th:method="PUT"
+              th:object="${EmployeeDTO}">
             <div class="form-group">
-                Id: <input type="text" th:field="*{employeeId}"/>
-                Name: <input type="text" th:field="*{name}"/>
-                Surname: <input type="text" th:field="*{surname}"/>
-                Salary: <input type="text" th:field="*{salary}"/>
+                Id: <input type="text" th:field="*{employeeId}"/><br>
+                Name: <input type="text" th:field="*{name}"/><br>
+                Surname: <input type="text" th:field="*{surname}"/><br>
+                Salary: <input type="text" th:field="*{salary}"/><br>
+                Phone: <input type="text" th:field="*{phone}"/><br>
+                Email: <input type="text" th:field="*{email}"/><br>
             </div>
             <div class="form-group">
                 <input type="submit" value="Update employee" name="button"/>
@@ -43,6 +53,8 @@
                 <th>Name</th>
                 <th>Surname</th>
                 <th>Salary</th>
+                <th>Email</th>
+                <th>Phone</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -51,13 +63,17 @@
                 <td th:text="${employee.name}"></td>
                 <td th:text="${employee.surname}"></td>
                 <td th:text="${employee.salary}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.phone}"></td>
                 <td>
-                    <form action="#" th:action="@{employees/show/{employeeId}(employeeId=${employee.employeeId})}" method="GET">
+                    <form action="#" th:action="@{employees/show/{employeeId}(employeeId=${employee.employeeId})}"
+                          method="GET">
                         <button type="submit" class="btn btn-info">Show</button>
                     </form>
                 </td>
                 <td>
-                    <form action="#" th:action="@{employees/delete/{employeeId}(employeeId=${employee.employeeId})}" th:method="DELETE">
+                    <form action="#" th:action="@{employees/delete/{employeeId}(employeeId=${employee.employeeId})}"
+                          th:method="DELETE">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>

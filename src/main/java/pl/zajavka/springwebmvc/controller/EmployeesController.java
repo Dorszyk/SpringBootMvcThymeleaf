@@ -1,14 +1,15 @@
 package pl.zajavka.springwebmvc.controller;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.zajavka.springwebmvc.infrastructure.database.entity.EmployeeEntity;
 import pl.zajavka.springwebmvc.infrastructure.database.repository.EmployeeRepository;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -19,12 +20,10 @@ public class EmployeesController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping
-    public String employeesList(Model model) {
-        List<EmployeeEntity> allEmployees = employeeRepository.findAll();
-
-        model.addAttribute("employees", allEmployees);
-        model.addAttribute("updateEmployeeDTO", new UpdateEmployeeDTO());
-
+    public String employees(Model model) {
+        List<EmployeeEntity> employees = employeeRepository.findAll();
+        model.addAttribute("employees", employees);
+        model.addAttribute("EmployeeDTO", new EmployeeDTO());
         return "employees";
     }
 
@@ -39,16 +38,17 @@ public class EmployeesController {
         return "employeeDetails";
     }
 
+
     @PostMapping("/add")
     public String addEmployee(
-            @RequestParam(value = "name") String name,
-            @RequestParam(value = "surname") String surname,
-            @RequestParam(value = "salary") String salary
-    ) {
-        EmployeeEntity newEmployee = EmployeeEntity.builder()
-                .name(name)
-                .surname(surname)
-                .salary(new BigDecimal(salary))
+            @Valid @ModelAttribute("EmployeeDTO") EmployeeDTO employeeDTO
+    ){
+            EmployeeEntity newEmployee =EmployeeEntity.builder()
+                .name(employeeDTO.getName())
+                .surname(employeeDTO.getSurname())
+                .salary(employeeDTO.getSalary())
+                .phone(employeeDTO.getPhone())
+                .email(employeeDTO.getEmail())
                 .build();
         employeeRepository.save(newEmployee);
 
@@ -62,18 +62,21 @@ public class EmployeesController {
         return "redirect:/employees";
     }
 
+
     @PutMapping("/update")
     public String updateEmployee(
-            @ModelAttribute("updateEmployeeDTO") UpdateEmployeeDTO updateEmployeeDTO
+           @Valid @ModelAttribute("EmployeeDTO") EmployeeDTO employeeDTO
     ) {
-        EmployeeEntity existingEmployee = employeeRepository.findById(updateEmployeeDTO.getEmployeeId())
+        EmployeeEntity employeeEntity = employeeRepository.findById(employeeDTO.getEmployeeId())
                 .orElseThrow(() -> new EntityNotFoundException(
-                        String.format("EmployeeEntity not found, employeeId: [%s]", updateEmployeeDTO.getEmployeeId())));
+                        "EmployeeEntity not found, employeeId: [%s]".formatted(employeeDTO.getEmployeeId())));
 
-        existingEmployee.setName(updateEmployeeDTO.getName());
-        existingEmployee.setSurname(updateEmployeeDTO.getSurname());
-        existingEmployee.setSalary(updateEmployeeDTO.getSalary());
-        employeeRepository.save(existingEmployee);
+        employeeEntity.setName(employeeDTO.getName());
+        employeeEntity.setSurname(employeeDTO.getSurname());
+        employeeEntity.setSalary(employeeDTO.getSalary());
+        employeeEntity.setPhone(employeeDTO.getPhone());
+        employeeEntity.setEmail(employeeDTO.getEmail());
+        employeeRepository.save(employeeEntity);
 
         return "redirect:/employees";
     }
