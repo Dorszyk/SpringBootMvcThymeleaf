@@ -9,6 +9,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -25,4 +28,14 @@ public class EmployeeDTO {
     @Email
     private String email;
 
+    public Map<String, String> asMap(){
+        Map<String, String> result = new HashMap<>();
+        Optional.ofNullable(employeeId).ifPresent(value -> result.put("employeeId",value.toString()));
+        Optional.ofNullable(name).ifPresent(value -> result.put("name",value.toString()));
+        Optional.ofNullable(surname).ifPresent(value -> result.put("surname",value.toString()));
+        Optional.ofNullable(salary).ifPresent(value -> result.put("salary",value.toString()));
+        Optional.ofNullable(phone).ifPresent(value -> result.put("phone",value.toString()));
+        Optional.ofNullable(email).ifPresent(value -> result.put("email",value.toString()));
+        return result;
+    }
 }
