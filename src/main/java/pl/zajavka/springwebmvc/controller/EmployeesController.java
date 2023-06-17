@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.zajavka.springwebmvc.infrastructure.database.entity.EmployeeEntity;
 import pl.zajavka.springwebmvc.infrastructure.database.repository.EmployeeRepository;
@@ -42,8 +41,8 @@ public class EmployeesController {
     @PostMapping("/add")
     public String addEmployee(
             @Valid @ModelAttribute("EmployeeDTO") EmployeeDTO employeeDTO
-    ){
-            EmployeeEntity newEmployee =EmployeeEntity.builder()
+    ) {
+        EmployeeEntity newEmployee = EmployeeEntity.builder()
                 .name(employeeDTO.getName())
                 .surname(employeeDTO.getSurname())
                 .salary(employeeDTO.getSalary())
@@ -65,7 +64,7 @@ public class EmployeesController {
 
     @PutMapping("/update")
     public String updateEmployee(
-           @Valid @ModelAttribute("EmployeeDTO") EmployeeDTO employeeDTO
+            @Valid @ModelAttribute("EmployeeDTO") EmployeeDTO employeeDTO
     ) {
         EmployeeEntity employeeEntity = employeeRepository.findById(employeeDTO.getEmployeeId())
                 .orElseThrow(() -> new EntityNotFoundException(
