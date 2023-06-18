@@ -26,3 +26,9 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

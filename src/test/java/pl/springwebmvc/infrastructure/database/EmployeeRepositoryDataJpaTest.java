@@ -1,4 +1,4 @@
-package pl.springwebmvc.infrastucture.database;
+package pl.springwebmvc.infrastructure.database;
 
 
 import lombok.AllArgsConstructor;
