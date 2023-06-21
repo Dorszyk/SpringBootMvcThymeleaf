@@ -1,5 +1,6 @@
 package pl.springwebmvc.infrastructure.security;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -54,4 +55,35 @@ public class SecurityConfiguration {
 
         return httpSecurity.build();
     }
+
+    @Bean
+    @ConditionalOnProperty(value = "spring.security.enabled", havingValue = "true", matchIfMissing = true)
+    public SecurityFilterChain securityEnabled(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeHttpRequests()
+                .requestMatchers("/login", "/error", "images/oh_no.png").permitAll()
+                .requestMatchers(HttpMethod.DELETE).hasAnyAuthority("ADMIN")
+                .requestMatchers("employees/**", "/images/**").hasAnyAuthority("USER", "ADMIN")
+                .and()
+                .formLogin()
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .permitAll();
+
+        return httpSecurity.build();
+    }
+
+    @Bean
+    @ConditionalOnProperty(value = "spring.security.enabled", havingValue = "false")
+    public SecurityFilterChain securityDisabled(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeHttpRequests()
+                .anyRequest()
+                .permitAll();
+        return httpSecurity.build();
+    }
+
+
 }

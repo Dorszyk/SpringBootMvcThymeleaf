@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EmployeeRepositoryDataJpaTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EmployeeRepositoryDataJpaTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/pl.springwebmvc.infrastructure.database.html">pl.springwebmvc.infrastructure.database</a> &gt; EmployeeRepositoryDataJpaTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.723s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">thatEmployeeCanBeSavedCorrectly()</td>
+<td class="success">0.723s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>21:50:12.228 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [pl.springwebmvc.infrastructure.database.AbstractJpaIT]: AbstractJpaIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:50:12.384 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration pl.springwebmvc.DemoApplication for test class pl.springwebmvc.infrastructure.database.EmployeeRepositoryDataJpaTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+INFO  o.t.utility.ImageNameSubstitutor - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+INFO  o.testcontainers.DockerClientFactory - Docker host IP address is localhost
+INFO  o.testcontainers.DockerClientFactory - Connected to docker: 
+  Server Version: 23.0.5
+  API Version: 1.42
+  Operating System: Docker Desktop
+  Total Memory: 7926 MB
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling docker image: testcontainers/ryuk:0.5.1. Please be patient; this may take some time but only needs to be done once.
+INFO  tc.testcontainers/ryuk:0.5.1 - Starting to pull image
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  2 pending,  1 downloaded,  0 extracted, (334 KB/? MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  1 pending,  2 downloaded,  0 extracted, (5 MB/? MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  0 pending,  3 downloaded,  0 extracted, (5 MB/5 MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  0 pending,  3 downloaded,  1 extracted, (5 MB/5 MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  0 pending,  3 downloaded,  2 extracted, (5 MB/5 MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pulling image layers:  0 pending,  3 downloaded,  3 extracted, (5 MB/5 MB)
+INFO  tc.testcontainers/ryuk:0.5.1 - Pull complete. 3 layers, pulled in 2s (downloaded 5 MB at 2 MB/s)
+INFO  tc.testcontainers/ryuk:0.5.1 - Creating container for image: testcontainers/ryuk:0.5.1
+INFO  tc.testcontainers/ryuk:0.5.1 - Container testcontainers/ryuk:0.5.1 is starting: 3874f4a2ebd1ee00dad4e5cc28acbcb60e93d66dfc97ff6daf901404d15af696
+INFO  tc.testcontainers/ryuk:0.5.1 - Container testcontainers/ryuk:0.5.1 started in PT5.5522269S
+INFO  o.t.utility.RyukResourceReaper - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+INFO  o.testcontainers.DockerClientFactory - Checking the system...
+INFO  o.testcontainers.DockerClientFactory - âś”ď¸Ž Docker server version should be at least 1.6.0
+INFO  tc.postgres:15.0 - Creating container for image: postgres:15.0
+INFO  tc.postgres:15.0 - Container postgres:15.0 is starting: c41c1e2449584b4edf80b677638bc3a1269b62133c856369216689af5c09b8ae
+INFO  tc.postgres:15.0 - Container postgres:15.0 started in PT1.920514S
+INFO  tc.postgres:15.0 - Container is started (JDBC URL: jdbc:postgresql://localhost:63523/test?loggerLevel=OFF)
+INFO  p.s.i.d.EmployeeRepositoryDataJpaTest - Starting EmployeeRepositoryDataJpaTest using Java 17.0.6 with PID 16260 (started by piotr in C:\Users\piotr\Desktop\Java\SpringBootMvcThymeleaf)
+INFO  p.s.i.d.EmployeeRepositoryDataJpaTest - No active profile set, falling back to 1 default profile: &quot;default&quot;
+INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 2 JPA repository interfaces.
+INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.16.3 by Redgate
+INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+INFO  o.f.c.i.license.VersionPrinter - 
+INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56b05bd7
+INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:postgresql://localhost:63523/test (PostgreSQL 15.0)
+INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table &quot;public&quot;.&quot;flyway_schema_history&quot; does not exist yet
+INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.018s)
+INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table &quot;public&quot;.&quot;flyway_schema_history&quot; ...
+INFO  o.f.core.internal.command.DbMigrate - Current version of schema &quot;public&quot;: &lt;&lt; Empty Schema &gt;&gt;
+INFO  o.f.core.internal.command.DbMigrate - Migrating schema &quot;public&quot; to version &quot;1.0 - init employees table&quot;
+INFO  o.f.core.internal.command.DbMigrate - Migrating schema &quot;public&quot; to version &quot;2.0 - security create tables&quot;
+INFO  o.f.core.internal.command.DbMigrate - Migrating schema &quot;public&quot; to version &quot;2.1 - security create users&quot;
+INFO  o.f.core.internal.command.DbMigrate - Successfully applied 3 migrations to schema &quot;public&quot;, now at version v2.1 (execution time 00:00.108s)
+INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@663cf5d7
+INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  p.s.i.d.EmployeeRepositoryDataJpaTest - Started EmployeeRepositoryDataJpaTest in 11.979 seconds (process running for 13.358)
+Hibernate: insert into employee (email,name,phone,salary,surname) values (?,?,?,?,?)
+Hibernate: insert into employee (email,name,phone,salary,surname) values (?,?,?,?,?)
+Hibernate: insert into employee (email,name,phone,salary,surname) values (?,?,?,?,?)
+Hibernate: select e1_0.employee_id,e1_0.email,e1_0.name,e1_0.phone,e1_0.salary,e1_0.surname from employee e1_0
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0</a> at 21 cze 2023, 21:50:26</p>
+</div>
+</div>
+</body>
+</html>
