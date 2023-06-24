@@ -17,6 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity(debug = true)
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
+
 public class SecurityConfiguration {
 
     @Bean
@@ -35,25 +36,6 @@ public class SecurityConfiguration {
                 .passwordEncoder(passwordEncoder)
                 .and()
                 .build();
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests()
-                .requestMatchers("/login", "/error", "images/oh_no.png").permitAll()
-                .requestMatchers(HttpMethod.DELETE).hasAnyAuthority("ADMIN")
-                .requestMatchers("employees/**", "/images/**").hasAnyAuthority("USER", "ADMIN")
-                .and()
-                .formLogin()
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .permitAll();
-
-        return httpSecurity.build();
     }
 
     @Bean

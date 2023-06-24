@@ -6,8 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.ui.ExtendedModelMap;
 import pl.springwebmvc.infrastructure.database.entity.EmployeeEntity;
 import pl.springwebmvc.infrastructure.database.repository.EmployeeRepository;
@@ -19,14 +17,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @ExtendWith(MockitoExtension.class)
-public class EmployeesControllerTest  {
+public class EmployeesControllerTest {
     @Mock
     public EmployeeRepository employeeRepository;
 
     @InjectMocks
     public EmployeesController employeesController;
 
-   @Test
+    @Test
     public void thatRetrievingEmployeeDetailsWorksCorrectly() throws Exception {
         //given
         int employeeId = 10;
