@@ -17,9 +17,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.springwebmvc.util.EntityFixtures.*;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@TestPropertySource(locations = "classpath:application-test.yaml")
+
 @AllArgsConstructor (onConstructor = @__(@Autowired))
 public class EmployeeRepositoryDataJpaTest extends AbstractJpaIT{
 
@@ -38,4 +36,30 @@ public class EmployeeRepositoryDataJpaTest extends AbstractJpaIT{
         assertThat(employeeEntitiesFound.size()).isEqualTo(3);
     }
 
+    @Test
+    void thatEmployeeCanBeFoundAndUpdatedByEmail() {
+        // given
+        EmployeeEntity employee = someEmployee1();
+        employeeRepository.saveAndFlush(employee);
+
+        // when
+        EmployeeEntity found = employeeRepository.findByEmail(employee.getEmail())
+                .orElseThrow(() -> new IllegalStateException("Employee not found by email"));
+
+        // then
+        assertThat(found.getName()).isEqualTo(employee.getName());
+        assertThat(found.getSurname()).isEqualTo(employee.getSurname());
+
+        // when (update)
+        found.setSalary(found.getSalary().add(new java.math.BigDecimal("1000.00")));
+        found.setPhone("600 700 800");
+        employeeRepository.saveAndFlush(found);
+
+        // then (verify persisted changes)
+        EmployeeEntity afterUpdate = employeeRepository.findById(found.getEmployeeId())
+                .orElseThrow(() -> new IllegalStateException("Employee not found by id after update"));
+        assertThat(afterUpdate.getSalary()).isEqualTo(found.getSalary());
+        assertThat(afterUpdate.getPhone()).isEqualTo("600 700 800");
+        assertThat(afterUpdate.getEmail()).isEqualTo(employee.getEmail()); // email niezmieniony
+    }
 }

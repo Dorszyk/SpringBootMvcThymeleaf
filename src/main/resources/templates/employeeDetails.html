@@ -3,13 +3,21 @@
 <head>
     <title>Employee</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css"/>
 </head>
 <body>
-    <div class="container">
-        <h2>Employee</h2>
-        <table class="table table-striped table-hover">
+<div class="topbar">
+    <div class="brand">Spring MVC • Employees</div>
+    <a class="btn btn-small btn-light" th:href="@{/employees}">Wszyscy pracownicy</a>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>Szczegóły pracownika</h2>
+        <p class="subtitle">Podstawowe informacje o wybranym pracowniku</p>
+
+        <table class="table">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -18,6 +26,8 @@
                 <th>Phone</th>
                 <th>Email</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td th:text="${employee.employeeId}"></td>
                 <td th:text="${employee.name}"></td>
@@ -26,8 +36,13 @@
                 <td th:text="${employee.phone}"></td>
                 <td th:text="${employee.email}"></td>
             </tr>
+            </tbody>
         </table>
-        <a class="btn btn-light" th:href="@{/employees}">Show all employees</a>
+
+        <div class="mt-16">
+            <a class="btn btn-light" th:href="@{/employees}">← Wróć do listy</a>
+        </div>
     </div>
+</div>
 </body>
 </html>

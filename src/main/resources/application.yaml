@@ -1,13 +1,17 @@
 server:
-  port: 8081
+  port: 8282
   servlet:
-    context-path: /springwebmvc/
+    context-path: /springwebmvc
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: true
 
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/zajavka
+    url: jdbc:postgresql://localhost:5432/springwebmvc
     username: postgres
     password: postgres
     hikari:
@@ -27,8 +31,14 @@ spring:
       filter:
         enabled: true
 
+  security:
+    enabled: true
+    debug: true
+
 logging:
   level:
     org:
       springframework:
-        security: DEBUG
+        security: INFO
+        security.web: INFO
+

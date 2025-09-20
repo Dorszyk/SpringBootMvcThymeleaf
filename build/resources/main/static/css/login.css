@@ -1,0 +1,154 @@
+/* src/main/resources/static/css/login.css */
+:root {
+  --bg: #0f172a;            /* slate-900 */
+  --card: #111827;          /* gray-900 */
+  --text: #e5e7eb;          /* gray-200 */
+  --muted: #9ca3af;         /* gray-400 */
+  --primary: #6366f1;       /* indigo-500 */
+  --primary-hover: #4f46e5; /* indigo-600 */
+  --error: #ef4444;         /* red-500 */
+  --success: #10b981;       /* emerald-500 */
+  --ring: rgba(99,102,241,.4);
+  --radius: 14px;
+  --shadow: 0 20px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.18), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(14,165,233,.14), transparent 55%),
+    linear-gradient(180deg, #0b1023 0%, var(--bg) 60%, #0b1023 100%);
+  font: 400 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+.auth-wrapper {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)) padding-box,
+              linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.02)) border-box;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 26px;
+  backdrop-filter: blur(8px);
+  transform: translateZ(0);
+}
+
+.auth-title {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  background: linear-gradient(90deg, #fff, #c7d2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.auth-hint {
+  margin: 18px 2px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 10px 2px 14px;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, .08);
+  border-color: rgba(239, 68, 68, .35);
+  color: #fecaca;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, .08);
+  border-color: rgba(16, 185, 129, .35);
+  color: #bbf7d0;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(17, 24, 39, .7);
+  border: 1px solid rgba(148, 163, 184, .25);
+  border-radius: 12px;
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+input::placeholder {
+  color: rgba(226, 232, 240, .45);
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--ring);
+  background: rgba(17, 24, 39, .9);
+}
+
+.form-actions {
+  margin-top: 6px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-hover));
+  color: white;
+  font-weight: 600;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, .35), inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, .35), inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+@media (max-width: 480px) {
+  .auth-card { padding: 22px 18px 18px; }
+  .auth-title { font-size: 24px; }
+}

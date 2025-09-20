@@ -27,22 +27,22 @@ public class BootstrapApplicationComponent implements ApplicationListener<Contex
         employeeRepository.save(EmployeeEntity.builder()
                 .name("Stefan")
                 .surname("Zajavka")
-                .salary(new BigDecimal("52322.00"))
-                .phone("501 111 222")
+                .salary(new BigDecimal("7400.00"))
+                .phone("+48 501 111 222")
                 .email("stefan@zajavka.pl")
                 .build());
         employeeRepository.save(EmployeeEntity.builder()
                 .name("Agnieszka")
                 .surname("Spring")
-                .salary(new BigDecimal("62341.00"))
-                .phone("501 222 333")
+                .salary(new BigDecimal("6200.00"))
+                .phone("+48 501 222 333")
                 .email("agnieszka@zajavka.pl")
                 .build());
         employeeRepository.save(EmployeeEntity.builder()
                 .name("Tomasz")
                 .surname("Hibernate")
-                .salary(new BigDecimal("53231.00"))
-                .phone("501 333 444")
+                .salary(new BigDecimal("5300.00"))
+                .phone("+48 501 333 444")
                 .email("tomasz@zajavka.pl")
                 .build());
     }

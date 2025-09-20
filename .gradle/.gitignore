@@ -1,0 +1,8 @@
+# Cache Gradle
+.gradle/
+
+# Katalogi build (we wszystkich modułach)
+**/build/
+
+# (opcjonalnie) katalogi kompilacji IDE
+out/

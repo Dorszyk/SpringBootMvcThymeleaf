@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Logowanie</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="/css/login.css"/>
+</head>
+<body>
+<main class="auth-wrapper">
+    <section class="auth-card">
+        <h1 class="auth-title">Zaloguj się</h1>
+
+        <div th:if="${loginError}" class="alert alert-error" th:text="${loginError}">Nieprawidłowy login lub hasło.</div>
+        <div th:if="${logoutMsg}" class="alert alert-success" th:text="${logoutMsg}">Zostałeś pomyślnie wylogowany.</div>
+
+        <form th:action="@{/perform_login}" method="post" class="auth-form">
+            <div class="form-row">
+                <label for="username">Użytkownik</label>
+                <input type="text" id="username" name="username" autocomplete="username" required placeholder="np. jan.kowalski"/>
+            </div>
+            <div class="form-row">
+                <label for="password">Hasło</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required placeholder="••••••••"/>
+            </div>
+
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Zaloguj</button>
+            </div>
+        </form>
+
+        <p class="auth-hint">
+            Dostęp wymaga aktywnego konta. W razie problemów skontaktuj się z administratorem.
+        </p>
+    </section>
+</main>
+</body>
+</html>

@@ -23,6 +23,8 @@ public class GlobalExceptionHandler {
         log.error(message, ex);
         ModelAndView modelView = new ModelAndView("error");
         modelView.addObject("errorMessage", message);
+        modelView.addObject("status", 500);
+        modelView.addObject("error", "Internal Server Error");
         return modelView;
     }
 
@@ -33,6 +35,8 @@ public class GlobalExceptionHandler {
         log.error(message, ex);
         ModelAndView modelView = new ModelAndView("error");
         modelView.addObject("errorMessage", message);
+        modelView.addObject("status", 404);
+        modelView.addObject("error", "Not Found");
         return modelView;
     }
    
@@ -48,6 +52,8 @@ public class GlobalExceptionHandler {
         log.error(message, ex);
         ModelAndView modelView = new ModelAndView("error");
         modelView.addObject("errorMessage", message);
+        modelView.addObject("status", 400);
+        modelView.addObject("error", "Bad Request");
         return modelView;
     }
 }
